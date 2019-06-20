@@ -11,7 +11,7 @@ var weatherArray = [
     low: 32,
     rain: 0,
     heading: "Balmy Evening",
-    imgSrc: "/sandbox/src/img/icon-all-cloudy.png",
+    imgSrc: "./img/icon-all-cloudy.png",
     imgAlt: "Weather picture"
   },
   {
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <h1>Sarah's Weather Station</h1>
-      <h2>What clothing shall I put on today?</h2>
+      <h2>5 Day Forecast</h2>
       <WeatherList weatherArray={weatherArray} />
     </div>
   );

@@ -20,8 +20,15 @@ ul li {
 .weather-card {
   flex-basis: 200px;
   max-width: 300px;
-  background: rgb(242, 209, 255, 0.3);
+  color: rgba(137, 204, 235, 0.3);
+  box-shadow: 6px 9px;
+  background: rgba(210, 241, 255, 0.3);
   margin: 20px;
+}
+
+.weather-card h3,
+.weather-card p {
+  color: #11a;
 }
 
 .weather-card img {
