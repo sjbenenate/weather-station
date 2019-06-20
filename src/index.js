@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import WeatherList from "./WeatherList.js";
+import UserInput from "./UserInput.js";
 
 import "./styles.css";
 
@@ -25,14 +26,25 @@ var weatherArray = [
   }
 ];
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Sarah's Weather Station</h1>
-      <h2>5 Day Forecast</h2>
-      <WeatherList weatherArray={weatherArray} />
-    </div>
-  );
+class App extends Component {
+  state = { city: "Portland, OR" };
+
+  updateCity = newCity => {
+    this.setState({ city: newCity });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <h1 id="page-title">Sarah's Weather Station</h1>
+        <h2>
+          5 Day Forecast in <strong>{this.state.city}</strong>
+        </h2>
+        <UserInput updateCity={this.updateCity} />
+        <WeatherList weatherArray={weatherArray} />
+      </div>
+    );
+  }
 }
 
 const rootElement = document.getElementById("root");

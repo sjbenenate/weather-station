@@ -3,6 +3,23 @@
   text-align: center;
 }
 
+body {
+  color: rgb(4, 155, 241);
+}
+
+#page-title {
+  font-family: "Courgette", cursive;
+}
+
+.city-form select,
+.city-form option {
+  font-size: 18px;
+  padding: 5px;
+  border: 1px solid rgba(137, 204, 235);
+  background-color: rgba(137, 204, 235, 0.1);
+  border-radius: 5px;
+}
+
 ul {
   list-style: none;
 }
@@ -24,11 +41,17 @@ ul li {
   box-shadow: 6px 9px;
   background: rgba(210, 241, 255, 0.3);
   margin: 20px;
+  padding: 8px 5px;
+  border-radius: 5px;
 }
 
 .weather-card h3,
 .weather-card p {
-  color: #11a;
+  color: rgb(4, 155, 241);
+}
+
+.weather-card p {
+  font-weight: bold;
 }
 
 .weather-card img {
