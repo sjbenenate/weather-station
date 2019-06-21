@@ -2,7 +2,7 @@ import React from "react";
 
 var WeatherCard = props => {
   var imgSrc = "./img/" + props.weather.icon + ".png";
-
+  var precip = Math.round(100 * props.weather.precipProbability);
   return (
     <li className="weather-card">
       <h3>{props.weather.summary}</h3>
@@ -12,7 +12,7 @@ var WeatherCard = props => {
         <br />
         Low: <span>{Math.round(props.weather.apparentTemperatureMin)}</span> F
         <br />
-        Chance of Rain: <span>{100 * props.weather.precipProbability}</span>%
+        Chance of Rain: <span>{precip}</span>%
       </p>
     </li>
   );

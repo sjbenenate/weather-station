@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import UserInput from "./UserInput.js";
 import WeatherAPI from "./WeatherAPI.js";
+import ErrorBoundary from "./ErrorBoundary.js";
 
 import "./styles.css";
 
@@ -22,7 +23,9 @@ class App extends Component {
           5 Day Forecast in <strong>{this.state.city}</strong>
         </h2>
         <UserInput updateCity={this.updateCity} />
-        <WeatherAPI city={this.state.city} />
+        <ErrorBoundary>
+          <WeatherAPI city={this.state.city} />
+        </ErrorBoundary>
       </div>
     );
   }
