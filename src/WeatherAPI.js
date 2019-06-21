@@ -15,7 +15,7 @@ let getCoordinates = city => {
     case "Portland, OR":
       return ["45.5155", "-122.6793"];
     case "Seattle, WA":
-      return ["45.6062", "122.3321"];
+      return ["45.6062", "-122.3321"];
     case "Los Angeles, CA":
       return ["34.0522", "-118.2437"];
     case "Austin, TX":

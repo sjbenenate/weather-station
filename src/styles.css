@@ -32,6 +32,7 @@ ul li {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .weather-card {
@@ -43,6 +44,11 @@ ul li {
   margin: 20px;
   padding: 8px 5px;
   border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .weather-card h3,
