@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import WeatherList from "./WeatherList.js";
 import UserInput from "./UserInput.js";
+import WeatherAPI from "./WeatherAPI.js";
 
 import "./styles.css";
+
+// weather API  https://rapidapi.com/darkskyapis/api/dark-sky
 
 var weatherArray = [
   {
@@ -42,6 +45,7 @@ class App extends Component {
         </h2>
         <UserInput updateCity={this.updateCity} />
         <WeatherList weatherArray={weatherArray} />
+        <WeatherAPI city={this.state.city} />
       </div>
     );
   }
