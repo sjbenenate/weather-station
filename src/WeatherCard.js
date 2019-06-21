@@ -1,16 +1,18 @@
 import React from "react";
 
 var WeatherCard = props => {
+  var imgSrc = "./img/" + props.weather.icon + ".png";
+
   return (
-    <li className="weather-card" key={props.weather.id}>
-      <h3>{props.weather.heading}</h3>
-      <img src={props.weather.imgSrc} alt={props.weather.imgAlt} />
+    <li className="weather-card">
+      <h3>{props.weather.summary}</h3>
+      <img src={imgSrc} alt={props.weather.icon} />
       <p>
-        High: <span>{props.weather.high}</span> F
+        High: <span>{Math.round(props.weather.temperatureMax)}</span> F
         <br />
-        Low: <span>{props.weather.low}</span> F
+        Low: <span>{Math.round(props.weather.apparentTemperatureMin)}</span> F
         <br />
-        Chance of Rain: <span>{props.weather.rain}</span>%
+        Chance of Rain: <span>{100 * props.weather.precipProbability}</span>%
       </p>
     </li>
   );

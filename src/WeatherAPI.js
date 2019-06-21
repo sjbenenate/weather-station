@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import WeatherList from "./WeatherList.js";
+import { weatherData } from "./weatherData.js";
 
 const APIurl = "https://dark-sky.p.rapidapi.com/";
 const APIhost = "dark-sky.p.rapidapi.com";
@@ -29,10 +31,10 @@ let getCoordinates = city => {
 class WeatherAPI extends Component {
   constructor(props) {
     super(props);
-    this.state = { weatherData: {}, isLoading: true };
+    this.state = { weatherData: {}, isLoading: false };
   }
 
-  componentDidMount() {
+  /*componentDidMount() {
     this.setState({ isLoading: true });
     let url = formatURL(getCoordinates(this.props.city));
 
@@ -46,14 +48,21 @@ class WeatherAPI extends Component {
       .then(data =>
         this.setState({ weatherData: data.daily, isLoading: false })
       );
-  }
+  }*/
 
   render() {
     var isLoading = this.state.isLoading;
     if (isLoading) {
       return <div className="loading">Loading...</div>;
     } else {
-      return <div>{this.state.weatherData.summary}</div>;
+      return (
+        <div>
+          {weatherData.daily.summary}
+          <div>
+            <WeatherList weatherData={weatherData.daily} />
+          </div>
+        </div>
+      );
     }
   }
 }

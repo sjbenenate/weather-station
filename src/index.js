@@ -1,33 +1,11 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import WeatherList from "./WeatherList.js";
 import UserInput from "./UserInput.js";
 import WeatherAPI from "./WeatherAPI.js";
 
 import "./styles.css";
 
 // weather API  https://rapidapi.com/darkskyapis/api/dark-sky
-
-var weatherArray = [
-  {
-    id: 1,
-    high: 95,
-    low: 32,
-    rain: 0,
-    heading: "Balmy Evening",
-    imgSrc: "./img/icon-all-cloudy.png",
-    imgAlt: "Weather picture"
-  },
-  {
-    id: 2,
-    high: 55,
-    low: 20,
-    rain: 20,
-    heading: "Ice Day",
-    imgSrc: "./img/icon-sunny.png",
-    imgAlt: "Weather picture"
-  }
-];
 
 class App extends Component {
   state = { city: "Portland, OR" };
@@ -45,7 +23,6 @@ class App extends Component {
         </h2>
         <UserInput updateCity={this.updateCity} />
         <WeatherAPI city={this.state.city} />
-        <WeatherList weatherArray={weatherArray} />
       </div>
     );
   }
