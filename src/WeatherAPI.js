@@ -5,44 +5,55 @@ const APIhost = "dark-sky.p.rapidapi.com";
 const APIkey = "7fcae583e6mshfb0a40746534038p145d17jsn4d0f57a7e898";
 const APIoptions = "?lang=en&units=us";
 
-let formatRequest = coordinates => {
+let formatURL = coordinates => {
   return APIurl + coordinates[0] + "," + coordinates[1] + APIoptions;
 };
 
 let getCoordinates = city => {
-  var coord = ["0", "0"];
-  if (city === "Portland, OR") {
-    coord = ["45.5155", "-122.6793"];
-  } else if (city === "Seattle, WA") {
-    coord = ["47.6062", "-122.3321"];
-  } else {
-    coord = ["100", "100"];
+  switch (city) {
+    case "Portland, OR":
+      return ["45.5155", "-122.6793"];
+    case "Seattle, WA":
+      return ["45.6062", "122.3321"];
+    case "Los Angeles, CA":
+      return ["34.0522", "-118.2437"];
+    case "Austin, TX":
+      return ["30.2672", "-97.7431"];
+    case "Denver, CO":
+      return ["39.7392", "-104.9903"];
+    default:
+      return ["-90", "0"];
   }
-  return coord;
 };
 
 class WeatherAPI extends Component {
-  state = { daily: {}, isLoading: false };
+  constructor(props) {
+    super(props);
+    this.state = { weatherData: {}, isLoading: true };
+  }
 
   componentDidMount() {
-    this.setState({ loading: true });
-    let url = formatRequest(getCoordinates(this.props.city));
+    this.setState({ isLoading: true });
+    let url = formatURL(getCoordinates(this.props.city));
 
     fetch(url, {
       headers: {
         "X-RapidAPI-Host": APIhost,
-        "X-RapidAPI-Key": APIkey //it can be iPhone or your any other attribute
+        "X-RapidAPI-Key": APIkey
       }
     })
       .then(response => response.json())
-      .then(data => this.setState({ daily: data.daily, isLodaing: false }));
+      .then(data =>
+        this.setState({ weatherData: data.daily, isLoading: false })
+      );
   }
 
   render() {
-    if (this.state.isLoading) {
+    var isLoading = this.state.isLoading;
+    if (isLoading) {
       return <div className="loading">Loading...</div>;
     } else {
-      return <div>{this.state.daily.summary}</div>;
+      return <div>{this.state.weatherData.summary}</div>;
     }
   }
 }

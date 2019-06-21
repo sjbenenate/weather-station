@@ -12,7 +12,7 @@ class UserInput extends Component {
         <select onChange={this.handleChange}>
           <option value="Portand, OR">Portland, OR</option>
           <option value="Seattle, WA">Seattle, WA</option>
-          <option value="Los Angels, CA">Los Angels, CA</option>
+          <option value="Los Angeles, CA">Los Angels, CA</option>
           <option value="Austin, TX">Austin, TX</option>
           <option value="Denver, CO">Denver, CO</option>
         </select>
