@@ -44,8 +44,8 @@ class App extends Component {
           5 Day Forecast in <strong>{this.state.city}</strong>
         </h2>
         <UserInput updateCity={this.updateCity} />
-        <WeatherList weatherArray={weatherArray} />
         <WeatherAPI city={this.state.city} />
+        <WeatherList weatherArray={weatherArray} />
       </div>
     );
   }
