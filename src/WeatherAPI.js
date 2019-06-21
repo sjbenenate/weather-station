@@ -23,7 +23,7 @@ let getCoordinates = city => {
     case "Denver, CO":
       return ["39.7392", "-104.9903"];
     default:
-      return ["-90", "0"];
+      return [];
   }
 };
 
