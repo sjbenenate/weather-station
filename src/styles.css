@@ -36,7 +36,7 @@ ul li {
 }
 
 .weather-card {
-  flex-basis: 200px;
+  flex: 1 1 200px;
   max-width: 300px;
   color: rgba(137, 204, 235, 0.3);
   box-shadow: 6px 9px;
@@ -52,8 +52,14 @@ ul li {
 }
 
 .weather-card h3,
+.weather-card h4,
 .weather-card p {
   color: rgb(4, 155, 241);
+}
+
+.weather-card h3,
+.weather-card h4 {
+  margin: 3px 5px;
 }
 
 .weather-card p {

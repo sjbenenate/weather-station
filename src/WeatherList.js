@@ -7,7 +7,6 @@ var renderWeatherCard = weather => (
 
 /* uses array called weatherArray to pass in weather card information*/
 var WeatherList = props => {
-  console.log(props);
   var fiveDay = props.weatherData.data.slice(0, 5);
   var fiveDayElements = fiveDay.map(renderWeatherCard);
   return <ul className="weather-list">{fiveDayElements}</ul>;
