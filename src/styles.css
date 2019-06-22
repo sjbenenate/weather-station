@@ -20,8 +20,15 @@ body {
   border-radius: 5px;
 }
 
+.loading {
+  margin: 20% 0;
+  font-size: 24px;
+}
+
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 ul li {
