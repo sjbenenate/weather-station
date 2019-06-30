@@ -30,7 +30,7 @@ let getCoordinates = city => {
 class WeatherAPI extends Component {
   constructor(props) {
     super(props);
-    this.state = { weatherData: {}, isLoading: true };
+    this.state = { weatherData: [], isLoading: true };
   }
 
   componentDidMount() {
@@ -54,7 +54,11 @@ class WeatherAPI extends Component {
     })
       .then(response => response.json())
       .then(data =>
-        this.setState({ weatherData: data.daily, isLoading: false })
+        this.setState({
+          weatherData: data.daily,
+          timeZone: data.timezone,
+          isLoading: false
+        })
       );
   }
 
@@ -65,7 +69,10 @@ class WeatherAPI extends Component {
     } else {
       return (
         <div>
-          <WeatherList weatherData={this.state.weatherData} />
+          <WeatherList
+            timeZone={this.state.timeZone}
+            weatherData={this.state.weatherData}
+          />
         </div>
       );
     }
